@@ -1,5 +1,6 @@
 #Author FuzzLightyear, aka. Fuzzifier, aka. SudoScientist
 #Date 12/27/2020
+#Linked List with added features. Stack, Queue built off of LinkedList
 
 
 class llnode():
