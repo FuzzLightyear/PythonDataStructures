@@ -4,28 +4,46 @@ You can use the [editor on GitHub](https://github.com/FuzzLightyear/PythonDataSt
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
+<body>
+  <div class="mermaid">
+    classDiagram
+    Animal <|-- Duck
+    Animal <|-- Fish
+    Animal <|-- Zebra
+    Animal : +int age
+    Animal : +String gender
+    Animal: +isMammal()
+    Animal: +mate()
+    class Duck{
+      +String beakColor
+      +swim()
+      +quack()
+      }
+    class Fish{
+      -int sizeInFeet
+      -canEat()
+      }
+    class Zebra{
+      +bool is_wild
+      +run()
+      }
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+      callback Duck callback "Tooltip"
+      link Zebra "http://www.github.com" "This is a link"
+  </div>
 
-```markdown
-Syntax highlighted code block
+  <script>
+    var callback = function(){
+        alert('A callback was triggered');
+    }
+    var config = {
+      startOnLoad:true,
+      securityLevel:'loose',
+    };
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
+    mermaid.initialize(config);
+  </script>
+</body>
 For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
 
 ### Jekyll Themes
