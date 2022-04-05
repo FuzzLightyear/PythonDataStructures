@@ -6,7 +6,7 @@ Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://j
 
 <!-- <body>
   <div class="mermaid"> -->
- ```
+ ```mermaid
 stateDiagram-v2
     [*] --> First
     First --> Second
