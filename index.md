@@ -29,8 +29,6 @@ Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://j
       +run()
       }
 
-      callback Duck callback "Tooltip"
-      link Zebra "http://www.github.com" "This is a link"
   </div>
   ```
 
