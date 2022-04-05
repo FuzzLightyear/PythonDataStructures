@@ -4,8 +4,9 @@ You can use the [editor on GitHub](https://github.com/FuzzLightyear/PythonDataSt
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-<body>
-  <div class="mermaid">
+<!-- <body>
+  <div class="mermaid"> -->
+ ```mermaid
     classDiagram
     Animal <|-- Duck
     Animal <|-- Fish
@@ -31,6 +32,7 @@ Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://j
       callback Duck callback "Tooltip"
       link Zebra "http://www.github.com" "This is a link"
   </div>
+  ```
 
   <script>
     var callback = function(){
