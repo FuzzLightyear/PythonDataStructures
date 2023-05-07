@@ -49,6 +49,8 @@ class ChainNodeMixin(object):
     def __init__(self):
         self._nxt = None 
         self.prev = None
+        
+import networkx as nx
             
 class Node(ChainNodeMixin):
     value = None 
@@ -62,6 +64,38 @@ class Node(ChainNodeMixin):
         if self.prev is None:
             return 0
         return self.prev.idx + 1
+    
+    def nx_node(self, G):
+        data = {
+            "label": f"{self.value}",
+            "index": self.idx,
+        }
+        x = G.add_node(node_for_adding=self, **data)
+        # x = nx.node(data)
+        # G.add_node(x, **data)
+        # nx.add_node(G, x)
+        if (nxt:=self.nxt) is not None:
+            data["next"] = nxt.idx
+            nodes, edges = nxt.nx_node(G)
+            
+            # G.add_edge(x, nxt.nx_node(G))
+            # nx.add_edge(G, x, nxt.nx_node(G))
+            e = G.add_edge(x, nodes[0], **edges[0]) 
+            nodes.append(x)
+            edges.append(e)
+            return nodes, edges
+        return [x], []
+    
+    def nx_graph(self, G):
+        node = G.add_node(self.value, index=self.idx)
+        if (nxt:=self.nxt) is not None:
+            x = nxt.nx_graph(G)
+            G.add_edge(self.value, nxt.value)
+            # G.add_edge(node, G.nodes[self.idx+1])
+
+        return node
+        
+            
     
     def __len__(self):
         if (nxt:=self.nxt) is None:
@@ -113,6 +147,17 @@ class LL(object):
     def __init__(self, root):
         self.root = root if isinstance(root, Node) else Node(root)
         
+    def __iter__(self):
+        n = [self.root]
+        run = 1
+        while n:
+            print(n)
+            yield n[0]
+            old = n.pop(0)
+            if (nxt:=old.nxt) is None:
+                n = [nxt]
+
+        
     def insert_at(self, node, i: int):
         if not isinstance(node, Node):
             node = Node(node)
@@ -127,12 +172,18 @@ class LL(object):
     append = lambda instance, node: instance.root.append(node)
     get = lambda instance, value, /, default=None: instance.root.get(value, default)
     
+    def nx_graph(self):
+        g = nx.DiGraph()
+        if self.root is not None:
+            # self.root.nx_node(G=g)
+            self.root.nx_graph(G=g)
+        g.graph["rankdir"] = "LR"
+        g.graph["dpi"] = 100
+        g.graph["nodesep"] = 0.5
+        # g.plot = lambda: nx.nx_agraph.view_pygraphviz(g, prog="dot")
+        # nx.draw(g, with_labels=True)
+        # g.plot()
+        return g
         
-
-l = LL(1)
-
-for i in range(2, 10):
-    l.root.append(Node(i))
-    print(len(l.root))
     
-    
+        
