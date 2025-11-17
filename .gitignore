@@ -62,3 +62,7 @@ tmp/
 
 # Claude
 .claude/
+
+# Documentation
+site/
+.mkdocs_cache/
