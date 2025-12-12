@@ -4,30 +4,32 @@ You can use the [editor on GitHub](https://github.com/FuzzLightyear/PythonDataSt
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-<!-- <body>
-  <div class="mermaid"> -->
- ```mermaid
-stateDiagram-v2
-    [*] --> First
-    First --> Second
-    First --> Third
-
-    state First {
-        [*] --> fir
-        fir --> [*]
-    }
-    state Second {
-        [*] --> sec
-        sec --> [*]
-    }
-    state Third {
-        [*] --> thi
-        thi --> [*]
-    }
-
-  </div>
+<body>
+  <div class="mermaid">
+    
+   ```mermaid
+  stateDiagram-v2
+      [*] --> First
+      First --> Second
+      First --> Third
+  
+      state First {
+          [*] --> fir
+          fir --> [*]
+      }
+      state Second {
+          [*] --> sec
+          sec --> [*]
+      }
+      state Third {
+          [*] --> thi
+          thi --> [*]
+      }
+  
+    
   ```
 
+  </div>
 </body>
 For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
 
